@@ -31,7 +31,11 @@ function populateInput() {
   const savedMessageJSON = localStorage.getItem('feedback-form-state');
   if (savedMessageJSON) {
     const savedMessage = JSON.parse(savedMessageJSON);
-    refs.email.value = savedMessage.email;
-    refs.textarea.value = savedMessage.message;
+    if (savedMessage.email) {
+      refs.email.value = savedMessage.email;
+    }
+    if (savedMessage.message) {
+      refs.textarea.value = savedMessage.message;
+    }
   }
 }
