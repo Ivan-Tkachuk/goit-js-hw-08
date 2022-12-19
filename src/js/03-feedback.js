@@ -28,14 +28,16 @@ function onFormSubmit(e) {
 }
 
 function populateInput() {
-  const savedMessageJSON = localStorage.getItem('feedback-form-state');
+  const savedMessageJSON = localStorage.getItem('feedback-form-state') || '';
   if (savedMessageJSON) {
     const savedMessage = JSON.parse(savedMessageJSON);
     if (savedMessage.email) {
       refs.email.value = savedMessage.email;
+      formData.email = savedMessage.email;
     }
     if (savedMessage.message) {
       refs.textarea.value = savedMessage.message;
+      formData.message = savedMessage.message;
     }
   }
 }
